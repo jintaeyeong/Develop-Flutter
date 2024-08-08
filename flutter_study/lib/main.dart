@@ -11,12 +11,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter 공부앱', //앱이 백그라운드에 있을 때 앱 목록에 표시되는 이름
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.red),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurpleAccent),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Flutter Study Appbar'),
+      home: const MyHomePage(title: 'sample code'),
     );
   }
 }
@@ -31,21 +32,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      print('버튼 눌렀다');
-      _counter++;
-    });
-  }
-
-  void _descrementCounter() {
-    setState(() {
-      print('버튼 눌렀다');
-      _counter--;
-    });
-  }
 
   @override
   Widget build(BuildContext context) { // setState가 불려지면 항상 실행되는 메소드
@@ -54,61 +40,70 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title),
       ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          //
-          // TRY THIS: Invoke "debug painting" (choose the "Toggle Debug Paint"
-          // action in the IDE, or press "p" in the console), to see the
-          // wireframe for each widget.
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
-        ),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: Stack(
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Positioned(
-              bottom: 16,
-              right: 16,
-              child: FloatingActionButton(
-                onPressed: _incrementCounter,
-                tooltip: 'Increment',
-                child: const Icon(Icons.add),
-              )),
-          Positioned(
-              bottom: 16,
-              right: 100,
-              child: FloatingActionButton(
-                onPressed: _descrementCounter,
-                tooltip: 'Decrement',
-                child: const Icon(Icons.remove),
-              )),
+          const SizedBox(height: 16), // cosnt를 지정하면 한번 실행 후 바뀌지 않으니까 성능 개선하는데 도움을 줄 수 있음
+          const Text('Discover', style: TextStyle(fontSize: 36)),
+          const SizedBox(height: 16),
+          const Text('what\'s new today', style: TextStyle(fontSize: 13)),
+          const SizedBox(height: 16),
+          Row(
+            children: [
+              Container(
+                height: 100,
+                width: 100,
+                color: Colors.red,
+              ),
+              const Expanded(
+                child: SizedBox(height: 100),
+              ),
+              Container(
+                height: 100,
+                width: 100,
+                color: Colors.black,
+              ),
+            ],
+          ),
+          Row(
+             children: [
+               Container(
+                height: 100,
+                width: 100,
+                color: Colors.black,
+                ),
+               const SizedBox(width: 16),
+               Container(
+                 height:100,
+                 width: 100,
+                 color: Colors.red,
+               )
+             ],
+          ),
+          Row(
+            children: [
+              Container(
+                height: 100,
+                width: 100,
+                color: Colors.red,
+              ),
+              const SizedBox(width: 16),
+              Container(
+                height:100,
+                width: 100,
+                color: Colors.black,
+              ),
+              const SizedBox(width: 16),
+              Container(
+                height: 100,
+                width: 100,
+                color: Colors.blue,
+              ),
 
+            ],
+          ),
         ],
-      )/*FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      )*/, // This trailing comma makes auto-formatting nicer for build methods.
+      )
     );
   }
 
