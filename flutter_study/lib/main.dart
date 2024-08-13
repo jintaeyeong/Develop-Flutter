@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 void main() {
   runApp(const MyApp());
@@ -36,73 +37,94 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) { // setState가 불려지면 항상 실행되는 메소드
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(widget.title),
-      ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const SizedBox(height: 16), // cosnt를 지정하면 한번 실행 후 바뀌지 않으니까 성능 개선하는데 도움을 줄 수 있음
-          const Text('Discover', style: TextStyle(fontSize: 36)),
-          const SizedBox(height: 16),
-          const Text('what\'s new today', style: TextStyle(fontSize: 13)),
-          const SizedBox(height: 16),
-          Row(
-            children: [
-              Container(
-                height: 100,
-                width: 100,
-                color: Colors.red,
-              ),
-              const Expanded(
-                child: SizedBox(height: 100),
-              ),
-              Container(
-                height: 100,
-                width: 100,
-                color: Colors.black,
-              ),
-            ],
-          ),
-          Row(
-             children: [
-               Container(
-                height: 100,
-                width: 100,
-                color: Colors.black,
-                ),
-               const SizedBox(width: 16),
-               Container(
-                 height:100,
-                 width: 100,
-                 color: Colors.red,
-               )
-             ],
-          ),
-          Row(
-            children: [
-              Container(
-                height: 100,
-                width: 100,
-                color: Colors.red,
-              ),
-              const SizedBox(width: 16),
-              Container(
-                height:100,
-                width: 100,
-                color: Colors.black,
-              ),
-              const SizedBox(width: 16),
-              Container(
-                height: 100,
-                width: 100,
-                color: Colors.blue,
-              ),
+      body: SingleChildScrollView(
+        child: Column(
+          // crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Stack(
+              // alignment: Alignment.center,
+              children: [
+                // 순서가 중요함,, 밑에부터 깔아야됨
+                Image.asset('assets/images/img_bg.png'), // width 늘리기
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    SvgPicture.asset('assets/images/ic_logo.svg'),
+                    const SizedBox(width: 20),
+                    const Text('Photo',
+                        style: TextStyle(fontSize: 48,color:Colors.black)
+                    ),
+                  ],
+                )
+              ],
+            )
 
-            ],
-          ),
-        ],
+
+
+
+            //const SizedBox(height: 16), // cosnt를 지정하면 한번 실행 후 바뀌지 않으니까 성능 개선하는데 도움을 줄 수 있음
+            //const Text('Discover', style: TextStyle(fontSize: 36)),
+            //const SizedBox(height: 16),
+
+            // const Text('what\'s new today', style: TextStyle(fontSize: 13)),
+            // const SizedBox(height: 16),
+
+/*            Row(
+              children: [
+                Container(
+                  height: 100,
+                  width: 100,
+                  color: Colors.red,
+                ),
+                const Expanded(
+                  child: SizedBox(height: 100),
+                ),
+                Container(
+                  height: 100,
+                  width: 100,
+                  color: Colors.black,
+                ),
+              ],
+            )*//*,
+            Row(
+               children: [
+                 Container(
+                  height: 100,
+                  width: 100,
+                  color: Colors.black,
+                  ),
+                 const SizedBox(width: 16),
+                 Container(
+                   height:100,
+                   width: 100,
+                   color: Colors.red,
+                 )
+               ],
+            ),
+            Row(
+              children: [
+                Container(
+                  height: 100,
+                  width: 100,
+                  color: Colors.red,
+                ),
+                const SizedBox(width: 16),
+                Container(
+                  height:100,
+                  width: 100,
+                  color: Colors.black,
+                ),
+                const SizedBox(width: 16),
+                Container(
+                  height: 100,
+                  width: 100,
+                  color: Colors.blue,
+                ),
+
+              ],
+            ),*/
+          ],
+        ),
       )
     );
   }
