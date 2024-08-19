@@ -269,6 +269,43 @@ void
 - 사전적 뜻 : 공허, 아무것도 없다
 - return type : 없음
 
+=> 반환값이 바로 뭔지 알 수 있는 함수 
+
+#### typeDef 
+함수같은 것이지만 body가 없다..(이게 무슨말..)
+
+```
+// signature(return 타입과 parameter의 형태)
+typedef Operation = int Function(int x, int y, int z);
+
+// 더하기
+int add(int x, int y, int z) => x + y + z;
+
+// 빼기 
+int substrack(int x, int y, int z) => x - y - z;
+
+void main() {
+
+ Operation operation = add;
+ int result = operation(10,20,30);
+ print(result);
+
+ Operation operation = substract;
+ int result2 = operation(10,20,30);
+ print(result2);
+```
+출력
+60 
+-40
+
+그냥 이렇게 선언해서 사용하기 보다는 함수의 파라미터에 사용하는 경우가 많다..
+```
+int calculate(int x, int y, int z, Operation operation) {
+  return operation(x,y,z);
+}
+```
+
+
 
 #
 ## Dart 2 Object Oriented Programming 객체지향 프로그래밍
