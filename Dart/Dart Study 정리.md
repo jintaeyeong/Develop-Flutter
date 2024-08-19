@@ -1,5 +1,5 @@
 # Dart Study 정리
-Study Date : 2024/08/17
+Study Date : 2024/08/17, 08/19
 
 강의 url : [인프런 강의 주소](https://www.inflearn.com/course/lecture?courseSlug=dart-언어-입문&unitId=107600](https://www.inflearn.com/course/lecture?courseSlug=dart-%EC%96%B8%EC%96%B4-%EC%9E%85%EB%AC%B8&unitId=107600))
 
@@ -229,8 +229,45 @@ map이랑 굉장히 비슷함
 
 **List와 Set의 차이점**
 List : 중복값 가능
-Set : 중복값 불가능
+Set : 중복값 불가능 -> 알아서 중복값이 사라진다..
 
+### if문 
+if 
+else if
+else
+
+### for loop 
+for ( int i = 0; i < n; i++) {
+  print(i);
+}
+
+### while loop
+while 조건을 잘 보고 해야된다. 잘못 설정하면 무한대로 실행됨
+while(조건) {
+ 실행문
+ if(조건) {
+  break;
+ }
+}
+
+### enum 
+사용하고 싶은 상수를 정해놓고 사용
+
+### 함수 선언
+함수를 선언할 때 // 코멘트를 적어서 어떤 함수인지 적어놓고 구현하는게 좋다.
+
+가장 먼저 실행되는게 main 함수 
+
+parameter / argument - 매개변수 ,, 함수 선언할 때 인자로 받을 값
+
+positional parameter - 순서가 중요한 파라미터
+optional parameter - 있어도 되고 없어도 되는 파라미터 []
+  함수명(int x, [int y, int z]) -> 특이허네..
+named paramter - 이름이 있는 파라미터(순서가 중요하지 않다)
+
+void 
+- 사전적 뜻 : 공허, 아무것도 없다
+- return type : 없음
 
 
 #
