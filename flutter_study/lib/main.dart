@@ -28,105 +28,90 @@ class MyHomePage extends StatefulWidget {
   final String title;
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState(); // State 객체를 생성할 때 사용되는 메서드
+  State<MyHomePage> createState() =>
+      _MyHomePageState(); // State 객체를 생성할 때 사용되는 메서드
 // _MyHomePageState는 MyHomePage 위젯의 상태를 관리하는 클래스임을 나타냄
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  bool isTap = false;
 
   @override
-  Widget build(BuildContext context) { // setState가 불려지면 항상 실행되는 메소드
+  Widget build(BuildContext context) {
+    // setState가 불려지면 항상 실행되는 메소드
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Column(
-          // crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Stack(
-              // alignment: Alignment.center,
+        body: Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Flexible(
+            flex: 707,
+            child: Stack(
+              alignment: Alignment.center,
               children: [
                 // 순서가 중요함,, 밑에부터 깔아야됨
-                Image.asset('assets/images/img_bg.png'), // width 늘리기
+                Image.asset('assets/images/img_bg.png',
+                    width: double.infinity, fit: BoxFit.fill), // width 늘리기
                 Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     SvgPicture.asset('assets/images/ic_logo.svg'),
                     const SizedBox(width: 20),
                     const Text('Photo',
-                        style: TextStyle(fontSize: 48,color:Colors.black)
-                    ),
+                        style: TextStyle(fontSize: 48, color: Colors.black)),
                   ],
                 )
               ],
-            )
-
-
-
-
-            //const SizedBox(height: 16), // cosnt를 지정하면 한번 실행 후 바뀌지 않으니까 성능 개선하는데 도움을 줄 수 있음
-            //const Text('Discover', style: TextStyle(fontSize: 36)),
-            //const SizedBox(height: 16),
-
-            // const Text('what\'s new today', style: TextStyle(fontSize: 13)),
-            // const SizedBox(height: 16),
-
-/*            Row(
-              children: [
-                Container(
-                  height: 100,
-                  width: 100,
-                  color: Colors.red,
-                ),
-                const Expanded(
-                  child: SizedBox(height: 100),
-                ),
-                Container(
-                  height: 100,
-                  width: 100,
-                  color: Colors.black,
-                ),
-              ],
-            )*//*,
-            Row(
-               children: [
-                 Container(
-                  height: 100,
-                  width: 100,
-                  color: Colors.black,
+            )),
+        Flexible(
+            flex: 105,
+            child: Padding(
+              // padding: const EdgeInsets.fromLTRB(16, 20, 16, 20),
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
+              child: Row(
+                children: [
+                  Flexible(
+                    flex: 1,
+                    child: GestureDetector(
+                      //버튼에 기능을 붙여주는 것
+                      onTap: () {
+                        if (!isTap) {
+                          isTap = true;
+                        } else {
+                          isTap = false;
+                        }
+                        print(isTap);
+                      },
+                      onLongPressUp: () {
+                        print('로그인 버튼 길게 눌렀다가 뗌');
+                      },
+                      child: Container(
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(6),
+                            border: Border.all(color: Colors.black, width: 2)),
+                        alignment: Alignment.center,
+                        child: const Text('LOG IN',
+                            style:
+                                TextStyle(fontSize: 13, color: Colors.black)),
+                      ),
+                    ),
                   ),
-                 const SizedBox(width: 16),
-                 Container(
-                   height:100,
-                   width: 100,
-                   color: Colors.red,
-                 )
-               ],
-            ),
-            Row(
-              children: [
-                Container(
-                  height: 100,
-                  width: 100,
-                  color: Colors.red,
-                ),
-                const SizedBox(width: 16),
-                Container(
-                  height:100,
-                  width: 100,
-                  color: Colors.black,
-                ),
-                const SizedBox(width: 16),
-                Container(
-                  height: 100,
-                  width: 100,
-                  color: Colors.blue,
-                ),
-
-              ],
-            ),*/
-          ],
-        ),
-      )
-    );
+                  const SizedBox(width: 12),
+                  Flexible(
+                    flex: 1,
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: Colors.black,
+                        borderRadius: BorderRadius.circular(6),
+                      ),
+                      alignment: Alignment.center,
+                      child: const Text('REGISTER',
+                          style: TextStyle(fontSize: 13, color: Colors.white)),
+                    ),
+                  ),
+                ],
+              ),
+            ))
+      ],
+    ));
   }
-
 }
