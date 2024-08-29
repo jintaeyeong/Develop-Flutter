@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_study/loginPage.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 void main() {
@@ -64,7 +63,6 @@ class _MyHomePageState extends State<MyHomePage> {
               ],
             )),
         Flexible(
-            // 로그인 버튼
             flex: 105,
             child: Padding(
               // padding: const EdgeInsets.fromLTRB(16, 20, 16, 20),
@@ -77,23 +75,19 @@ class _MyHomePageState extends State<MyHomePage> {
                       //버튼에 기능을 붙여주는 것
                       onTap: () {
                         setState(() {
-                          // if (!isTap) {
-                          //   isTap = true;
-                          // } else {
-                          //   isTap = false;
-                          // }
-                          // print(isTap);
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const loginPage()));
+                          if (!isTap) {
+                            isTap = true;
+                          } else {
+                            isTap = false;
+                          }
+                          print(isTap);
                         });
 
                         // login 버튼을 눌렀을 때 색깔이 변하기를 바란다
                       },
-                      // onLongPressUp: () {
-                      //   print('로그인 버튼 길게 눌렀다가 뗌');
-                      // },
+                      onLongPressUp: () {
+                        print('로그인 버튼 길게 눌렀다가 뗌');
+                      },
                       child: Container(
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(6),
@@ -107,7 +101,6 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   const SizedBox(width: 12),
                   Flexible(
-                    // 회원가입 버튼
                     flex: 1,
                     child: Container(
                       decoration: BoxDecoration(
