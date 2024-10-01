@@ -36,13 +36,18 @@ class _loginPageState extends State<loginPage> {
             child: TextField(),
           ),
           const SizedBox(height: 16),
-          Container(
-            height: 52,
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
-            decoration: BoxDecoration(
-                border: Border.all(color: Colors.black, width: 2)),
-            alignment: Alignment.center,
-            child: TextField(),
+          GestureDetector(
+            onTap: () {
+              setState(() {});
+            },
+            child: Container(
+              height: 52,
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+              decoration: BoxDecoration(
+                  border: Border.all(color: Colors.black, width: 2)),
+              alignment: Alignment.center,
+              child: TextField(),
+            ),
           ),
           const SizedBox(height: 16),
           Container(
